@@ -40,7 +40,7 @@ public class SignupController {
     mailMessage.setFrom(from);
     mailMessage.setTo(aEmail);
     mailMessage.setSubject("Your login link");
-    mailMessage.setText(String.format("Hello!\nAccess your account here: http://localhost:8080/signin?uid=%s&token=%s",aEmail,token));
+    mailMessage.setText(String.format("Hello!\nAccess your account here: http://localhost:8080/signin/%s?uid=%s",token,aEmail));
     mailSender.send(mailMessage);
     
     return "login_link_sent";

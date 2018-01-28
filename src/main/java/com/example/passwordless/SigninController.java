@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -28,21 +29,8 @@ public class SigninController {
   }
 
   @GetMapping("/signin")
-  public String signin (@RequestParam(value="uid",required=false) String aUid, @RequestParam(value="token",required=false) String aToken) {
-    if(aUid != null && aToken != null) {
-      boolean valid = tokenStore.validate(aUid, aToken);
-      if(valid) {
-        Authentication authentication = new UsernamePasswordAuthenticationToken(aUid, null,AuthorityUtils.createAuthorityList("ROLE_USER"));
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        return "redirect:/";
-      }
-      else {
-        return "invalid_login_link";
-      }
-    }
-    else {
-      return "signin";
-    }
+  public String signin () {
+    return "signin";
   }
   
   @PostMapping("/signin")
@@ -56,11 +44,24 @@ public class SigninController {
     SimpleMailMessage mailMessage = new SimpleMailMessage();
     mailMessage.setFrom(from);
     mailMessage.setTo(aEmail);
-    mailMessage.setSubject("Your login link");
-    mailMessage.setText(String.format("Hello!\nAccess your account here: http://localhost:8080/signin?uid=%s&token=%s",aEmail,token));
+    mailMessage.setSubject("Your signin link");
+    mailMessage.setText(String.format("Hello!\nAccess your account here: http://localhost:8080/signin/%s?uid=%s",token,aEmail));
     mailSender.send(mailMessage);
     
     return "login_link_sent";
   }
-	
+  
+  @GetMapping("/signin/{token}")
+  public String signin (@RequestParam("uid") String aUid, @PathVariable("token") String aToken) {
+    boolean valid = tokenStore.validate(aUid, aToken);
+    if(valid) {
+      Authentication authentication = new UsernamePasswordAuthenticationToken(aUid, null,AuthorityUtils.createAuthorityList("ROLE_USER"));
+      SecurityContextHolder.getContext().setAuthentication(authentication);
+      return "redirect:/";
+    }
+    else {
+      return "invalid_login_link";
+    }
+  }
+  	
 }
