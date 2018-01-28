@@ -42,7 +42,7 @@ import java.util.concurrent.TimeUnit;
  * @param <K> the Key type
  * @param <V> the Value type
  */
-public class SelfExpiringHashMap<K, V> implements SelfExpiringMap<K, V> {
+public class SelfExpiringHashMap<K, V> implements Map<K,V>  {
 
   private final Map<K, V> internalMap;
 
@@ -132,11 +132,7 @@ public class SelfExpiringHashMap<K, V> implements SelfExpiringMap<K, V> {
     return this.put(key, value, maxLifeTimeMillis);
   }
 
-  /**
-   * {@inheritDoc}
-   */
-  @Override
-  public V put(K key, V value, long lifeTimeMillis) {
+  private V put(K key, V value, long lifeTimeMillis) {
     cleanup();
     ExpiringKey delayedKey = new ExpiringKey(key, lifeTimeMillis);
     ExpiringKey oldKey = expiringKeys.put((K) key, delayedKey);

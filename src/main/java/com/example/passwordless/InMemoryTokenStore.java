@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 
 /**
  * 
@@ -19,6 +20,7 @@ public class InMemoryTokenStore implements TokenStore {
   
   @Override
   public String generate (String aUserId) {
+    Assert.notNull(aUserId,"user id can't be null");
     String token = UUID.randomUUID().toString().replace("-", "");
     store.put(aUserId, token);
     return token;
@@ -26,6 +28,8 @@ public class InMemoryTokenStore implements TokenStore {
 
   @Override
   public boolean validate(String aUserId, String aToken) {
+    Assert.notNull(aUserId,"user id can't be null");
+    Assert.notNull(aToken,"token can't be null");
     String token = store.get(aUserId);
     return token != null && token.equals(aToken);
   }
