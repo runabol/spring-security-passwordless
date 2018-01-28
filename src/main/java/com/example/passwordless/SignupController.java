@@ -25,7 +25,7 @@ public class SignupController {
 
   @GetMapping("/signup")
   public String signup () {
-    return "signin";
+    return "signup";
   }
     
   @PostMapping("/signup")
@@ -43,7 +43,7 @@ public class SignupController {
     mailMessage.setText(String.format("Hello!\nAccess your account here: http://localhost:8080/signin?uid=%s&token=%s",aEmail,token));
     mailSender.send(mailMessage);
     
-    return "ack";
+    return "login_link_sent";
   }
   
 	

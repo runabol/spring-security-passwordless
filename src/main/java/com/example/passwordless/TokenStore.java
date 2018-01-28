@@ -1,7 +1,7 @@
 package com.example.passwordless;
 
 /**
- * <p>An interface for generating and valudating temporary login token for users. 
+ * <p>An interface for generating and validating temporary login token for users. 
  * 
  * <p>Implementations may (and should) expire tokens.
  * 
@@ -24,7 +24,7 @@ public interface TokenStore {
    * associated with him and that the token is valid (i.e.
    * not expired).
    * 
-   * @param aUserId The id of the user to validate the token of.
+   * @param aUserId The id of the user to validate the token for.
    * @param aToken The token to validate.
    * @return <code>true</code> if a token was found for the given user id and is valid. 
    * <code>false</code> otherwise.
