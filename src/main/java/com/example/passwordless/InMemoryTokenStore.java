@@ -5,6 +5,11 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Component;
 
+/**
+ * 
+ * @author Arik Cohen
+ * @since Jan 28, 2018
+ */
 @Component
 public class InMemoryTokenStore implements TokenStore {
   
