@@ -1,8 +1,5 @@
 package com.creactiviti.spring.security.passwordless.web;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -13,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.creactiviti.spring.security.passwordless.sender.Sender;
 import com.creactiviti.spring.security.passwordless.store.TokenStore;
 
 @Controller
@@ -20,14 +18,11 @@ public class SigninController {
   
   private final TokenStore tokenStore;
   
-  private final JavaMailSender mailSender;
+  private final Sender sender;
   
-  @Value("${passwordless.email.from}")
-  private String from;
-  
-  public SigninController (TokenStore aTokenStore, JavaMailSender aJavaMailSender){
+  public SigninController (TokenStore aTokenStore, Sender aSender){
     tokenStore = aTokenStore;
-    mailSender = aJavaMailSender;
+    sender = aSender;
   }
 
   @GetMapping("/signin")
@@ -43,12 +38,7 @@ public class SigninController {
     
     // send sign-in email
     String token = tokenStore.generate(aEmail);
-    SimpleMailMessage mailMessage = new SimpleMailMessage();
-    mailMessage.setFrom(from);
-    mailMessage.setTo(aEmail);
-    mailMessage.setSubject("Your signin link");
-    mailMessage.setText(String.format("Hello!\nAccess your account here: http://localhost:8080/signin/%s?uid=%s",token,aEmail));
-    mailSender.send(mailMessage);
+    sender.send(aEmail, token);
     
     return "login_link_sent";
   }

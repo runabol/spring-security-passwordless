@@ -7,7 +7,6 @@ import org.springframework.security.crypto.codec.Hex;
 import org.springframework.util.Assert;
 
 /**
- * 
  * @author Arik Cohen
  * @since Jan 28, 2018
  */
