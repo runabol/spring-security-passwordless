@@ -1,4 +1,4 @@
-package com.example.passwordless;
+package com.creactiviti.spring.security.passwordless;
 
 /**
  * <p>An interface for generating and validating temporary login token for users. 

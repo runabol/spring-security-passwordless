@@ -1,4 +1,4 @@
-package com.example.passwordless;
+package com.creactiviti.spring.security.passwordless;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

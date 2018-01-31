@@ -1,9 +1,9 @@
-package com.example.passwordless;
+package com.creactiviti.spring.security.passwordless;
 
+import java.security.SecureRandom;
 import java.util.Map;
-import java.util.UUID;
 
-import org.springframework.stereotype.Component;
+import org.springframework.security.crypto.codec.Hex;
 import org.springframework.util.Assert;
 
 /**
@@ -11,23 +11,28 @@ import org.springframework.util.Assert;
  * @author Arik Cohen
  * @since Jan 28, 2018
  */
-@Component
 public class InMemoryTokenStore implements TokenStore {
   
   private static final long FIFTEEN_MINS = 15 * 60 * 1000;
   
   private final Map<String, String> store = new SelfExpiringHashMap<>(FIFTEEN_MINS);
   
+  private final SecureRandom random = new SecureRandom();
+  
+  private final int TOKEN_BYTE_SIZE = 16;
+  
   @Override
   public String generate (String aUserId) {
     Assert.notNull(aUserId,"user id can't be null");
-    String token = UUID.randomUUID().toString().replace("-", "");
+    byte bytes[] = new byte[TOKEN_BYTE_SIZE];
+    random.nextBytes(bytes);
+    String token = String.valueOf(Hex.encode(bytes));
     store.put(aUserId, token);
     return token;
   }
 
   @Override
-  public boolean validate(String aUserId, String aToken) {
+  public boolean validate (String aUserId, String aToken) {
     Assert.notNull(aUserId,"user id can't be null");
     Assert.notNull(aToken,"token can't be null");
     String token = store.get(aUserId);
