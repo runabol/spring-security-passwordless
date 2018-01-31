@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.creactiviti.spring.security.passwordless.sender.Sender;
-import com.creactiviti.spring.security.passwordless.store.TokenStore;
+import com.creactiviti.spring.security.passwordless.core.Sender;
+import com.creactiviti.spring.security.passwordless.core.TokenStore;
 
 @Controller
 public class SigninController {

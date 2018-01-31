@@ -1,4 +1,4 @@
-package com.creactiviti.spring.security.passwordless.store;
+package com.creactiviti.spring.security.passwordless.core;
 
 import java.security.SecureRandom;
 import java.util.Map;

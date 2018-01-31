@@ -1,4 +1,4 @@
-package com.creactiviti.spring.security.passwordless.sender;
+package com.creactiviti.spring.security.passwordless.core;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;

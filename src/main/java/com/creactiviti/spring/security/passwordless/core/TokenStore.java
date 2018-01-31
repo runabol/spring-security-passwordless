@@ -1,4 +1,4 @@
-package com.creactiviti.spring.security.passwordless.store;
+package com.creactiviti.spring.security.passwordless.core;
 
 /**
  * <p>An interface for generating and storing login token for users. 
@@ -28,6 +28,5 @@ public interface TokenStore {
    * @return The temporary login token associated with the user or <code>null</code>/
    */
   String get (String aUserId);
-  
   
 }

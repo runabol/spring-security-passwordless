@@ -1,4 +1,4 @@
-package com.creactiviti.spring.security.passwordless.sender;
+package com.creactiviti.spring.security.passwordless.core;
 
 /**
  * An interface for sending temporary authentication tokens to users.

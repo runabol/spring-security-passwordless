@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.mail.javamail.JavaMailSender;
 
-import com.creactiviti.spring.security.passwordless.sender.EmailSender;
-import com.creactiviti.spring.security.passwordless.sender.Sender;
-import com.creactiviti.spring.security.passwordless.store.InMemoryTokenStore;
-import com.creactiviti.spring.security.passwordless.store.TokenStore;
+import com.creactiviti.spring.security.passwordless.core.EmailSender;
+import com.creactiviti.spring.security.passwordless.core.InMemoryTokenStore;
+import com.creactiviti.spring.security.passwordless.core.Sender;
+import com.creactiviti.spring.security.passwordless.core.TokenStore;
 
 @SpringBootApplication
 public class PasswordlessApplication {

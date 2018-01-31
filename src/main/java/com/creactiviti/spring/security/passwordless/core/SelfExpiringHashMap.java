@@ -1,4 +1,4 @@
-package com.creactiviti.spring.security.passwordless.store;
+package com.creactiviti.spring.security.passwordless.core;
 
 /*
  * Copyright (c) 2017 Pierantonio Cangianiello
