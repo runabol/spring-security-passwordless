@@ -21,7 +21,7 @@ public class InMemoryTokenStore implements TokenStore {
   private final int TOKEN_BYTE_SIZE = 16;
   
   @Override
-  public String generate (String aUserId) {
+  public String create (String aUserId) {
     Assert.notNull(aUserId,"user id can't be null");
     byte bytes[] = new byte[TOKEN_BYTE_SIZE];
     random.nextBytes(bytes);
@@ -31,11 +31,9 @@ public class InMemoryTokenStore implements TokenStore {
   }
 
   @Override
-  public boolean validate (String aUserId, String aToken) {
+  public String get(String aUserId) {
     Assert.notNull(aUserId,"user id can't be null");
-    Assert.notNull(aToken,"token can't be null");
-    String token = store.get(aUserId);
-    return token != null && token.equals(aToken);
+    return store.get(aUserId);
   }
 
 }

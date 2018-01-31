@@ -1,7 +1,7 @@
 package com.creactiviti.spring.security.passwordless.store;
 
 /**
- * <p>An interface for generating and validating temporary login token for users. 
+ * <p>An interface for generating and storing login token for users. 
  * 
  * <p>Implementations may (and should) expire tokens.
  * 
@@ -17,18 +17,17 @@ public interface TokenStore {
    * @return The generated token
    * @throws IllegalArgumentException if the user id is null.
    */
-  String generate (String aUserId);
+  String create (String aUserId);
   
   /**
-   * Validates that the given user id has the given token 
-   * associated with him and that the token is valid (i.e.
-   * not expired).
+   * Reurns the temporary token associated with the 
+   * given user id if one exists. Otherwise, returns 
+   * null.
    * 
-   * @param aUserId The id of the user to validate the token for.
-   * @param aToken The token to validate.
-   * @return <code>true</code> if a token was found for the given user id and is valid. 
-   * <code>false</code> otherwise.
+   * @param aUserId The id of the user to return the temporary token for.
+   * @return The temporary login token associated with the user or <code>null</code>/
    */
-  boolean validate (String aUserId, String aToken);
+  String get (String aUserId);
+  
   
 }

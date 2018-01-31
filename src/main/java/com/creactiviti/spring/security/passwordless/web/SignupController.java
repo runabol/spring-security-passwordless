@@ -32,7 +32,7 @@ public class SignupController {
     // ...
     
     // send sign-in email
-    String token = tokenStore.generate(aEmail);
+    String token = tokenStore.create(aEmail);
     
     sender.send(aEmail, token);
     

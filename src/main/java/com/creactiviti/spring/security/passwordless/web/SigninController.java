@@ -37,7 +37,7 @@ public class SigninController {
     // ...
     
     // send sign-in email
-    String token = tokenStore.generate(aEmail);
+    String token = tokenStore.create(aEmail);
     sender.send(aEmail, token);
     
     return "login_link_sent";
@@ -45,8 +45,8 @@ public class SigninController {
   
   @GetMapping("/signin/{token}")
   public String signin (@RequestParam("uid") String aUid, @PathVariable("token") String aToken) {
-    boolean valid = tokenStore.validate(aUid, aToken);
-    if(valid) {
+    String token = tokenStore.get(aUid);
+    if(aToken.equals(token)) {
       Authentication authentication = new UsernamePasswordAuthenticationToken(aUid, null,AuthorityUtils.createAuthorityList("ROLE_USER"));
       SecurityContextHolder.getContext().setAuthentication(authentication);
       return "redirect:/";
