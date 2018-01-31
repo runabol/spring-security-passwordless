@@ -1,4 +1,4 @@
-package com.creactiviti.spring.security.passwordless;
+package com.creactiviti.spring.security.passwordless.web;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.creactiviti.spring.security.passwordless.store.TokenStore;
 
 @Controller
 public class SigninController {

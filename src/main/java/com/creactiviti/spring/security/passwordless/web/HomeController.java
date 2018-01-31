@@ -1,4 +1,4 @@
-package com.creactiviti.spring.security.passwordless;
+package com.creactiviti.spring.security.passwordless.web;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
