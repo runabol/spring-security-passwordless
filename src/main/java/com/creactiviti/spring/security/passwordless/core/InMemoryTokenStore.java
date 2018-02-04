@@ -33,7 +33,7 @@ public class InMemoryTokenStore implements TokenStore {
   @Override
   public String get(String aUserId) {
     Assert.notNull(aUserId,"user id can't be null");
-    return store.get(aUserId);
+    return store.remove(aUserId);
   }
 
 }

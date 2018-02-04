@@ -16,7 +16,7 @@ If you ever went to a website, realized you forgot your password to that website
 
 After you entered your email address on the Reset Password page you were sent a link with a special code (a.k.a "token") embedded in it which providess you with the ability to reset your password. 
 
-That website essentially used your email address to create a secure, one-time-password link to your account. 
+That website essentially used your email address to create a secure, one-time-password "magic" link to your account. 
 
 Passwordless authentication says, "well, if we can do this when the user loses his password why can't we do it whenever he needs to login?".
 
@@ -69,10 +69,17 @@ Passwordless authentication says, "well, if we can do this when the user loses h
 
 And that's about it.
 
+# Securing the "magic" link.
 
+The weakest link in the chain is the generated token so you should make it as hard as possible for a malicious user to  
 
+1. When sending the link to the user communicate to your email server over SSL. 
 
+2. Tokens should only be usable once. 
 
+3. Tokens should not be easily guessable. 
+
+4. Tokens should expire after a reasonable amount of time (say 15 minutes).
 
 
 
