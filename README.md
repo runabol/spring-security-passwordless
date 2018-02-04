@@ -20,7 +20,7 @@ That website essentially used your email address to create a secure, one-time-pa
 
 Passwordless authentication says, "well, if we can do this when the user loses his password why can't we do it whenever he needs to login?".
 
-# The nitty gritties
+# The nitty gritty
 
 1. Create a sign-up/sign-in page. It basically needs only one field: email.
 
