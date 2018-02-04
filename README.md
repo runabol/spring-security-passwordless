@@ -22,13 +22,13 @@ Passwordless authentication says, "well, if we can do this when the user loses h
 
 # The nitty gritty
 
-1. Create a sign-up/sign-in page. It basically needs only one field: email.
+1. Create a [sign-up/sign-in page](https://github.com/creactiviti/spring-security-passwordless/blob/master/src/main/resources/templates/signin.html). It basically needs only one field: email.
 
 ```
 <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
 ```
 
-2. Create an endpoint to handle the form submission:
+2. Create an [endpoint](https://github.com/creactiviti/spring-security-passwordless/blob/master/src/main/java/com/creactiviti/spring/security/passwordless/web/SigninController.java#L35) to handle the form submission:
 
 ```
   private final TokenStore tokenStore;
@@ -50,7 +50,7 @@ Passwordless authentication says, "well, if we can do this when the user loses h
   }
 ```
 
-3. Create an endpoint to authenticate the user based on the "magic":
+3. Create an [endpoint](https://github.com/creactiviti/spring-security-passwordless/blob/master/src/main/java/com/creactiviti/spring/security/passwordless/web/SigninController.java#L48) to authenticate the user based on the "magic" link:
 
 ```
   private final Authenticator authenticator;
@@ -66,5 +66,13 @@ Passwordless authentication says, "well, if we can do this when the user loses h
     }
   }
 ```
+
+And that's about it.
+
+
+
+
+
+
 
 
