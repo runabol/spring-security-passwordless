@@ -12,7 +12,7 @@ This is where passwordless authentication comes in.
 
 How does it work? 
 
-If you ever went to a website, realized you forgot your password to that website and then used their "Forgot Password" button where they send you a reset link then you know what passwordless authentication is. 
+If you ever went to a website, realized you forgot your password to that website and then used their "Forgot Password" button where they send you a "magic" reset link, then you know what passwordless authentication is. 
 
 After you entered your email address on the Reset Password page you were sent a link with a special code (a.k.a "token") embedded in it which providess you with the ability to reset your password. 
 
