@@ -8,17 +8,17 @@ Even despite advances in biometric authentication (fingerprint, face recognition
 
 So what can we do to help our fellow users to access our application in an easier manner but without compromising security?
 
-This is where passwordless authentication comes in.
+This is where passwordless login comes in.
 
 How does it work? 
 
-If you ever went to a website, realized you forgot your password to that website and then used their "Forgot Password" button where they send you a "magic" reset link, then you know what passwordless authentication is. 
+If you ever went to a website, realized you forgot your password to that website and then used their "Forgot Password" button where they send you a "magic" reset link, then you know what passwordless login is. 
 
 After you entered your email address on the Reset Password page you were sent a link with a special code (a.k.a "token") embedded in it which providess you with the ability to reset your password. 
 
 That website essentially used your email address to create a secure, one-time-password "magic" link to your account. 
 
-Passwordless authentication says, "well, if we can do this when the user loses his password why can't we do it whenever he needs to login?".
+Passwordless login says, "well, if we can do this when the user loses his password why can't we do it whenever he needs to login?".
 
 # The nitty gritty
 
