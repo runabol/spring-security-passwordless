@@ -1,8 +1,8 @@
 # Introduction
 
-We all have a love/hate relationship with passwords. They protect are most valuable assets but they are so god damn hard to create and remember. 
+We all have a love/hate relationship with passwords. They protect our most valuable assets but they are so god damn hard to create and remember. 
 
-And to make things even harder for us humans, more and more companies are now enforcing two factor authentication (you know, the little phone pincode thing) to make it even more complicated to login to our accounts.
+And just to make things even harder for us humans, more and more companies are now enforcing two factor authentication (you know, the little phone pincode thing) to make it even more complicated to login to our accounts.
 
 Even despite advances in biometric authentication (fingerprint, face recognition etc.), passwords still remain the most ubiqutous form of authentication. 
 
@@ -10,7 +10,7 @@ So what can we do to help our fellow users to access our application in an easie
 
 This is where passwordless authentication comes in.
 
-How does that work? 
+How does it work? 
 
 If you ever went to a website, realized you forgot your password to that website and then used their "Forgot Password" button where they send you a reset link then you know what passwordless authentication is. 
 
