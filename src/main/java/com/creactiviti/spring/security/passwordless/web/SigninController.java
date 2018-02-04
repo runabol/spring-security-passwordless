@@ -1,15 +1,13 @@
 package com.creactiviti.spring.security.passwordless.web;
 
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.creactiviti.spring.security.passwordless.core.Authenticator;
 import com.creactiviti.spring.security.passwordless.core.Sender;
 import com.creactiviti.spring.security.passwordless.core.TokenStore;
 
@@ -20,9 +18,12 @@ public class SigninController {
   
   private final Sender sender;
   
-  public SigninController (TokenStore aTokenStore, Sender aSender){
+  private final Authenticator authenticator;
+  
+  public SigninController (TokenStore aTokenStore, Sender aSender, Authenticator aAuthenticator){
     tokenStore = aTokenStore;
     sender = aSender;
+    authenticator = aAuthenticator;
   }
 
   @GetMapping("/signin")
@@ -45,13 +46,11 @@ public class SigninController {
   
   @GetMapping("/signin/{token}")
   public String signin (@RequestParam("uid") String aUid, @PathVariable("token") String aToken) {
-    String token = tokenStore.get(aUid);
-    if(aToken.equals(token)) {
-      Authentication authentication = new UsernamePasswordAuthenticationToken(aUid, null,AuthorityUtils.createAuthorityList("ROLE_USER"));
-      SecurityContextHolder.getContext().setAuthentication(authentication);
+    try {
+      authenticator.authenticate(aUid, aToken);
       return "redirect:/";
     }
-    else {
+    catch (BadCredentialsException aBadCredentialsException) {
       return "invalid_login_link";
     }
   }
