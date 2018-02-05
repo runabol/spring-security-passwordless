@@ -93,6 +93,19 @@ There are few precutions you should take to keep the "magic" link as secure as p
 4. Tokens should expire after a reasonable amount of time (say 15 minutes). In this example I use an in-memory `TokenStore` implementation backed by a `SelfExpringHashMap` which as its name suggests expires entries after a given amount of time. In a real-world scenario you will most likely use a database to store your generated tokens so your website can run on more than one machine and so these tokens survive a crash. But the principle is the same. You can have a `created_at` field which stamps the time the token was created so you can determine if it expired or not.
 
 
+# Running the example
+
+```
+git clone https://github.com/creactiviti/spring-security-passwordless.git
+```
+
+```
+mvn clean spring-boot:run
+```
+
+Go to [http://localhost:8080](http://localhost:8080/signin)
+
+
 # License
 
 Apache License version 2.0.
