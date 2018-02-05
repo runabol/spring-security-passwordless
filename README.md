@@ -16,7 +16,7 @@ If you ever went to a website, realized you forgot your password and then used t
 
 After you entered your email address on the Reset Password page you were sent a "magic" link with a special code (a.k.a "token") embedded in it which provided you with the ability to reset your password. 
 
-That website piggy-backed on your secure email address to create a secure, one-time-password "magic" link to your account. 
+That website piggy-backed on your email address to create a secure, one-time-password "magic" link to your account. 
 
 Well, if we can do all that in a presumably safe way when the user loses his password why can't we do it whenever a user wants to login?
 
