@@ -103,7 +103,7 @@ git clone https://github.com/creactiviti/spring-security-passwordless.git
 mvn clean spring-boot:run -Dspring.mail.host=<SMTP HOST> -Dspring.mail.username=<SMTP USERNAME> -Dspring.mail.password=<SMTP PASSWORD>
 ```
 
-Go to [http://localhost:8080](http://localhost:8080/signin)
+Go to [http://localhost:8080/signin](http://localhost:8080/signin)
 
 
 # License
