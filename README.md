@@ -14,7 +14,7 @@ How does it work?
 
 If you ever went to a website, realized you forgot your password and then used their "Forgot Password" then you know what passwordless login is. 
 
-After you entered your email address on the Reset Password page you were sent a link with a special code (a.k.a "token") embedded in it which providess you with the ability to reset your password. 
+After you entered your email address on the Reset Password page you were sent a "magic" link with a special code (a.k.a "token") embedded in it which provided you with the ability to reset your password. 
 
 That website piggy-backed on your secure email address to create a secure, one-time-password "magic" link to your account. 
 
