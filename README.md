@@ -77,9 +77,16 @@ The weakest link in the chain is the generated token so you should make it as ha
 
 2. Tokens should only be usable once. 
 
-3. Tokens should not be easily guessable. 
+3. Tokens should not be easily guessable. Use a good, cryptographically strong random number generator. e.g:
 
-4. Tokens should expire after a reasonable amount of time (say 15 minutes).
+```
+    SecureRandom random = new SecureRandom();
+    byte bytes[] = new byte[TOKEN_BYTE_SIZE];
+    random.nextBytes(bytes);
+    String token = String.valueOf(Hex.encode(bytes));
+```
+     
+4. Tokens should expire after a reasonable amount of time (say 15 minutes). In this example I use an in-memory `TokenStore` implementation backed by a `SelfExpringHashMap` which as its name suggests expires entries after a given amount of time. In a real-world scenario you will most likely use a database to store your generated tokens so your website can run on more than one machine and so these tokens survive a crash. But the principle is the same. You can have a `created_at` field which stamps the time the token was created so you can determine if it expired or not.
 
 
 
