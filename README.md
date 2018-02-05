@@ -18,9 +18,9 @@ After you entered your email address on the Reset Password page you were sent a 
 
 That website piggy-backed on your already-password-protected email address to create a secure, one-time-password "magic" link to your account. 
 
-Well, if we can do all that in a presumably safe way when the user loses his password why can't we do it whenever a user wants to login?
+Well, if we can do all that in a presumably safe way when the user loses his password why can't we do it whenever a user wants to login? Sure we can.
 
-And just in case you're wondering some big name (Slack, Medium.com, Twitter) companies are already using this method of authentication.
+Oh, and just in case you're wondering some big name (Slack, Medium.com, Twitter) companies are already using this method of authentication.
 
 Alright, let's get down to business then.  
 
