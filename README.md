@@ -75,7 +75,7 @@ And that's about it.
 
 # Securing the "magic" link.
 
-There are few precutions you should take to keep the "magic" link as secure as possible:
+There are few precautions you should take to keep the "magic" link as secure as possible:
 
 1. When sending the link to the user communicate to your email server over SSL. 
 
